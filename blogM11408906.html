@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這一小鍋：湯頭專門家 | 復古與山水的味覺饗宴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Outfit:wght@300;400;600&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shanshui-black': '#1a1a1a',
+                        'shanshui-gray': '#4a4a4a',
+                        'imperial-gold': '#d4af37',
+                        'retro-red': '#bc4749',
+                        'ink-paper': '#f4f1de',
+                        'mist-white': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        'display': ['"Noto+Serif+TC"', 'serif'],
+                        'body': ['"Outfit"', 'sans-serif'],
+                        'calligraphy': ['"Zhi+Mang+Xing"', 'cursive'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'ink-spread': 'inkSpread 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        inkSpread: {
+                            '0%': { filter: 'blur(10px)', opacity: '0' },
+                            '100%': { filter: 'blur(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4f1de;
+            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #bc4749, transparent);
+            margin: 2rem 0;
+        }
+
+        .ink-accent {
+            position: relative;
+            display: inline-block;
+        }
+
+        .ink-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(188, 71, 73, 0.2);
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f1de;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body text-shanshui-black leading-relaxed overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-10">
+        <!-- Floating Elements for Atmosphere -->
+        <div class="absolute top-10 left-10 w-32 h-32 opacity-20 animate-float pointer-events-none">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4a4a4a" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,86.2,-0.5C85.3,14.6,80.1,29.3,71.5,41.9C62.9,54.5,50.9,65.1,37.1,72.4C23.3,79.7,7.7,83.7,-8.4,85.1C-24.5,86.5,-41.1,85.3,-55.1,78.2C-69.1,71.1,-80.5,58.1,-86.3,43.2C-92.1,28.3,-92.3,11.5,-89.2,-4.5C-86.1,-20.5,-79.7,-35.7,-69.9,-48.5C-60.1,-61.3,-46.9,-71.7,-33.1,-78.4C-19.3,-85.1,-4.9,-88.1,9.4,-89.7C23.7,-91.3,31.3,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <!-- Main Banner -->
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            <div class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl mb-12 animate-ink-spread border-8 border-white">
+                <img src='https://opal.google/board/blobs/26d3007b-4cae-4a6a-bd33-926933da6a1e' alt='這一小鍋 山水風格插畫' class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+
+            <div class="text-center max-w-3xl animate-fade-in-up">
+                <p class="font-calligraphy text-3xl text-retro-red mb-4 tracking-widest">湯頭專門家</p>
+                <h1 class="font-display text-5xl md:text-7xl font-black mb-6 text-shanshui-black leading-tight">
+                    這一鍋不簡單！<br/><span class="text-retro-red">個人鍋界的復古潮流</span>
+                </h1>
+                <div class="w-24 h-1 bg-retro-red mx-auto mb-8"></div>
+                <p class="text-lg md:text-xl font-light text-shanshui-gray leading-relaxed mb-4">
+                    解析「這一小鍋」的超強魅力：從皇室秘藏到你的個人小鍋。
+                </p>
+                <p class="text-sm uppercase tracking-widest text-shanshui-gray opacity-60">Author: M11408906 • 2024 Editorial</p>
+            </div>
+        </div>
+
+        <!-- Decorative Scroll Indicator -->
+        <div class="mt-12 animate-bounce">
+            <svg class="w-6 h-6 text-retro-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        
+        <!-- Section 1: Intro -->
+        <section class="max-w-4xl mx-auto mb-32 relative">
+            <div class="absolute -left-12 top-0 vertical-text font-calligraphy text-5xl text-gray-300 opacity-40 select-none">
+                鮮。香。飽。
+            </div>
+            
+            <div class="glass-card p-8 md:p-12 rounded-[2rem] relative z-10">
+                <h2 class="font-display text-3xl font-bold mb-8 flex items-center border-l-4 border-retro-red pl-6">
+                    一、 前言：這不只是火鍋，是你的時光機！
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="font-bold text-retro-red mb-4 text-xl">【這家店在幹嘛？】</h3>
+                        <p class="mb-6">
+                            在台灣，吃火鍋從來就不只是一種烹飪方式，它更像是一種深植於社會的集體儀式感——無論是慶祝、聚會，還是純粹想撫慰疲憊的靈魂，一鍋沸騰的高湯總能解決大部分的煩惱。
+                        </p>
+                        <p>
+                            而在這片紅海中，「這一小鍋」以中平價位的姿態強勢殺出，自許為<span class="ink-accent font-bold">「湯頭專門家」</span>，用一句俐落的「鮮、香、飽」直擊食客的胃袋與心智。
+                        </p>
+                    </div>
+                    <div class="bg-shanshui-black p-8 rounded-2xl text-mist-white shadow-xl rotate-1">
+                        <h3 class="font-bold text-imperial-gold mb-4 text-xl">【第一眼印象】</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            如果你曾走進「這一小鍋」，一定會被它強烈的視覺語彙所吸引。那不是尋常的餐飲裝潢，而是一場精心策劃的文化符號展演。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-retro-red text-xs rounded-full">霓虹燈管</span>
+                            <span class="px-3 py-1 bg-shanshui-gray text-xs rounded-full">舊式磁磚</span>
+                            <span class="px-3 py-1 bg-retro-red text-xs rounded-full">台式趣味標語</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <h3 class="font-bold text-retro-red mb-4 text-xl">【核心精神】</h3>
+                    <p>
+                        「湯頭專門家」並非隨口說說。在火鍋的消費心理學中，食材決定了下限，而湯頭決定了上限。「鮮、香、飽」的核心精神，精準地打中了現代人在高壓生活下，對於味覺刺激與飽足感的最基本渴望。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Origin (Bento Style) -->
+        <section class="mb-32">
+            <h2 class="font-display text-4xl font-black text-center mb-16">二、 尋根之旅：皇室秘藏的現代轉身</h2>
+            <div class="bento-grid">
+                <div class="glass-card p-10 rounded-3xl col-span-1 md:col-span-2 hover-lift">
+                    <span class="text-retro-red font-bold text-sm tracking-widest block mb-2">CORPORATE BACKGROUND</span>
+                    <h3 class="font-display text-2xl font-bold mb-4">大集團的小靈魂</h3>
+                    <p class="text-shanshui-gray">
+                        你可能不知道，這鍋帶著濃濃本土味的平價小火鍋，背後其實站著一個餐飲巨獸。它隸屬於「這一鍋餐飲集團」，而該集團的母企業正是以 <span class="font-bold border-b-2 border-imperial-gold">85度C</span> 聞名的「美食達人集團」。這意味著，它一出生就自帶強大的採購與研發基因。
+                    </p>
+                </div>
+                
+                <div class="bg-retro-red p-10 rounded-3xl text-mist-white hover-lift">
+                    <h3 class="font-display text-2xl font-bold mb-4">誕生故事</h3>
+                    <p class="opacity-90">
+                        2012 年成功佔領高端市場；2017 年敏銳捕捉到<span class="font-bold">「一人食經濟」</span>的崛起。將皇室級別的研發底蘊下放，從「一群人的狂歡」到「一個人的浪漫」。
+                    </p>
+                </div>
+
+                <div class="bg-shanshui-black p-10 rounded-3xl text-imperial-gold hover-lift">
+                    <h3 class="font-display text-2xl font-bold mb-4">擴張大法：店中店</h3>
+                    <p class="text-mist-white opacity-80">
+                        依附大型購物中心的高人流，透過母集團資源優勢，成為集團內部擴張速度最猛的品牌。你以為是你選擇了它，其實是它的通路策略悄悄包圍了你。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Traffic Codes -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-black inline-block relative px-4">
+                    三、 大家都在誇什麼？
+                    <span class="absolute -top-6 -right-12 font-calligraphy text-6xl text-retro-red opacity-20">TOP RANK</span>
+                </h2>
+                <p class="mt-4 text-shanshui-gray">這一小鍋的 3 大流量密碼</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Code 1 -->
+                <div class="group cursor-pointer">
+                    <div class="h-64 bg-mist-white border border-gray-200 rounded-2xl flex flex-col items-center justify-center p-8 transition-all group-hover:bg-shanshui-black group-hover:text-mist-white shadow-sm hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-retro-red/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-retro-red">
+                            <span class="text-2xl font-bold text-retro-red group-hover:text-white">01</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold mb-2">湯頭才是本體</h4>
+                        <p class="text-center text-sm opacity-60">石頭鍋、壽喜燒、麻辣鍋，穩定性是其基石。</p>
+                    </div>
+                </div>
+                <!-- Code 2 -->
+                <div class="group cursor-pointer">
+                    <div class="h-64 bg-mist-white border border-gray-200 rounded-2xl flex flex-col items-center justify-center p-8 transition-all group-hover:bg-shanshui-black group-hover:text-mist-white shadow-sm hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-retro-red/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-retro-red">
+                            <span class="text-2xl font-bold text-retro-red group-hover:text-white">02</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold mb-2">CP 值天花板</h4>
+                        <p class="text-center text-sm opacity-60">蔬菜自助吧、麵茶霜淇淋，創造極高滿足感。</p>
+                    </div>
+                </div>
+                <!-- Code 3 -->
+                <div class="group cursor-pointer">
+                    <div class="h-64 bg-mist-white border border-gray-200 rounded-2xl flex flex-col items-center justify-center p-8 transition-all group-hover:bg-shanshui-black group-hover:text-mist-white shadow-sm hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-retro-red/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-retro-red">
+                            <span class="text-2xl font-bold text-retro-red group-hover:text-white">03</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold mb-2">好拍到不行</h4>
+                        <p class="text-center text-sm opacity-60">復古裝潢轉化為社群貨幣，引發裂變傳播。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Honest Talk -->
+        <section class="max-w-4xl mx-auto mb-32">
+            <div class="bg-shanshui-gray text-mist-white rounded-[3rem] p-12 relative overflow-hidden shadow-2xl">
+                <div class="absolute right-[-50px] bottom-[-50px] w-64 h-64 bg-retro-red rounded-full opacity-10"></div>
+                <h2 class="font-display text-3xl font-bold mb-10 text-imperial-gold">四、 敲敲黑板：硬派食客的真心話大冒險</h2>
+                
+                <div class="space-y-10">
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 border-2 border-imperial-gold rounded-full flex items-center justify-center font-bold">！</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-mist-white">市場大亂鬥</h4>
+                            <p class="opacity-70">石二鍋、築間強敵環伺，如何持續產出具備不可替代性的「獨特性」是核心壓力。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 border-2 border-imperial-gold rounded-full flex items-center justify-center font-bold">￥</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-mist-white">荷包君的哀愁</h4>
+                            <p class="opacity-70">在全球通膨下，如何在維持平價定位與獲利之間取得平衡，考驗消費者忠誠度。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 border-2 border-imperial-gold rounded-full flex items-center justify-center font-bold">♨</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-mist-white">內場的汗水</h4>
+                            <p class="opacity-70">面對缺工潮，自助吧的補菜頻率與清潔維護是維繫口碑的生死線。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Future -->
+        <section class="mb-32">
+            <h2 class="font-display text-4xl font-black text-center mb-16">五、 預測未來：下一鍋會更精彩嗎？</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <h5 class="font-bold text-retro-red mb-4">自助吧進化論</h5>
+                    <p class="text-sm">走向精緻自助化，精準控管食材浪費與對抗人力短缺。</p>
+                </div>
+                <div class="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <h5 class="font-bold text-retro-red mb-4">數位服務生</h5>
+                    <p class="text-sm">App 與大數據結合，精準推播，綁定你的味覺生態系。</p>
+                </div>
+                <div class="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <h5 class="font-bold text-retro-red mb-4">把美味帶回家</h5>
+                    <p class="text-sm">開發常溫湯底與冷凍組，觸角延伸進家庭廚房。</p>
+                </div>
+                <div class="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <h5 class="font-bold text-retro-red mb-4">健康新選擇</h5>
+                    <p class="text-sm">引入原型食物與在地小農，重新定義火鍋的健康地位。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Conclusion -->
+        <section class="max-w-3xl mx-auto text-center py-20 border-t-2 border-retro-red/20 relative">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 px-8 bg-[#f4f1de] font-calligraphy text-4xl text-retro-red">
+                終
+            </div>
+            
+            <h2 class="font-display text-4xl font-black mb-8">六、 結語：今天晚餐就決定是它了？</h2>
+            <p class="text-xl leading-relaxed mb-12 italic text-shanshui-gray">
+                「這一小鍋」絕不只是一鍋果腹的熱湯，它是一套將復古情懷、精準商業邏輯與極致性價比完美融合的餐飲方程式。
+            </p>
+            
+            <div class="bg-mist-white p-12 rounded-[3rem] shadow-inner border border-gray-200">
+                <h4 class="font-display text-2xl font-bold mb-6">留言互動：哪款才是你的本命湯頭？</h4>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="px-8 py-3 bg-shanshui-black text-white rounded-full hover:bg-retro-red transition-colors shadow-lg">經典石頭鍋</button>
+                    <button class="px-8 py-3 bg-shanshui-black text-white rounded-full hover:bg-retro-red transition-colors shadow-lg">真味壽喜燒</button>
+                    <button class="px-8 py-3 bg-shanshui-black text-white rounded-full hover:bg-retro-red transition-colors shadow-lg">御膳麻辣鍋</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Elements (JS) -->
+    <script>
+        // Simple scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    entry.target.style.opacity = "1";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = "0";
+            observer.observe(section);
+        });
+
+        // Interactive Button Feedback
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => {
+                    this.classList.remove('scale-95');
+                    alert('好選擇！這款湯頭確實是不少食客的首選。');
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
